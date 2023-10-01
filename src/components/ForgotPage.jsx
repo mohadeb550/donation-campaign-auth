@@ -1,44 +1,8 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Authentication/Auth.jsx";
-import toast  from "react-hot-toast";
 
 
-export default function Login() {
-
-    const navigate = useNavigate()
-    const { loginUser ,loginWithGoogle, loginWithGithub } = useContext(AuthContext);
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
-        loginUser(email, password)
-        .then(result => {
+export default function ForgotPage() {
     
-            e.target.reset();
-            toast.success('Logged In')
-            navigate('/')
-        })
-        .catch(error =>  toast.error('An error occurred!'))
-    }
-
-    const socialLogin = (platform) => {
-      platform()
-      .then(result => {
-          toast.success('Login Successful!')
-          navigate('/')
-      })
-      .catch(error => {
-          toast.error('An error occurred!')
-      })
-  }
-
-
-
-  return(
+  return (
     <div className="hero min-h-screen bg-base-200">
     <div className="hero-content flex-col lg:flex-row-reverse">
       <div className="text-center lg:text-left">
@@ -64,7 +28,7 @@ export default function Login() {
             </label>
             <input type="text" placeholder="Password" className="input input-bordered" name="password" />
             <label className="label">
-              <Link to="/forgot-password" className="label-text-alt link link-hover">Forgot password?</Link>
+              <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
             </label>
 
             <div>

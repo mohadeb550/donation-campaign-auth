@@ -8,6 +8,7 @@ import Statistics from '../Pages/Statistics'
 import DonationDetails from "../components/DonationDetails";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
+import ForgotPage from "../components/ForgotPage";
 
 
 export const router = createBrowserRouter([
@@ -19,5 +20,6 @@ export const router = createBrowserRouter([
         {path:'/donation-details/:id', element: <DonationDetails/>},
         {path:'/login', element: <Login/>},
         {path:'/signUp', element: <SignUp/>},
+        {path:'/forgot-password', element: <ForgotPage/>},
     ]}
 ])

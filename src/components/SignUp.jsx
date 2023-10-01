@@ -8,7 +8,7 @@ import toast  from "react-hot-toast";
 
 export default function SignUp() {
     const navigate = useNavigate()
-    const { createUser , loginWithGoogle } = useContext(AuthContext);
+    const { createUser , loginWithGoogle , loginWithGithub} = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -44,7 +44,7 @@ export default function SignUp() {
     <div className="hero min-h-screen bg-base-200">
     <div className="hero-content flex-col lg:flex-row-reverse">
       <div className="text-center lg:text-left">
-        <h1 className="text-5xl font-bold">Sign Up now!</h1>
+        <h1 className="text-4xl lg:text-5xl font-bold">Sign Up now!</h1>
       </div>
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div className="card-body">
@@ -72,9 +72,7 @@ export default function SignUp() {
               <span className="label-text">Password</span>
             </label>
             <input type="text" placeholder="Password" className="input input-bordered" name="password" />
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-            </label>
+           
 
             <div className="form-control mb-3">
             <label className="label">
@@ -84,17 +82,17 @@ export default function SignUp() {
           </div>
 
             <div>
-                <h4 className="text-sm font-semibold"> Already Have An Account? <Link to='/login'> <span className="text-blue-600 underline"> Login</span></Link> </h4>
+                <h4 className="text-sm font-semibold"> Already Have An Account? <Link to='/login'> <span className="text-orange-500 underline"> Login</span></Link> </h4>
             </div>
 
             <div className="flex my-2 gap-2">
                 <img className="w-40 cursor-pointer" src="/loginWithGoogle.png" onClick={()=> socialLogin(loginWithGoogle)} />
-                <img className="w-40 cursor-pointer" src="/github.jpg"/>
+                <img className="w-40 cursor-pointer" src="/github.jpg" onClick={()=> socialLogin(loginWithGithub)}/>
             </div>
 
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary" type="submit"> Sign Up </button>
+            <button className="btn btn-error text-gray-50" type="submit"> Sign Up </button>
           </div>
         </form>
 
